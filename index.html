@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Austin Johnson · 28eme Studio</title>
+  <title>Austin Johnson · AI-Native Product Leader</title>
   <meta name="description" content="Austin Johnson is an AI-native product manager and founder of 28eme, a consulting studio for automation-first and creative side projects.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 4L4 28h6l6-16 6 16h6L16 4z' fill='%23E07A5F'/%3E%3C/svg%3E">
   <style>
     :root {
       color-scheme: light;
-      /* Neutral Harmony Bliss palette for austinbjohnson.com */
       --bg: #F4F1DE;
       --surface: rgba(61, 64, 91, 0.05);
       --surface-strong: #FFFFFF;
@@ -21,9 +21,7 @@
       --max-width: 70rem;
       font-size: 100%;
     }
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -37,327 +35,535 @@
       display: flex;
       flex-direction: column;
     }
-    header {
-      padding: clamp(2.8rem, 6vw, 4.5rem) 1.5rem 2.2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    main {
-      flex: 1;
-      padding: 2.2rem 1.5rem 4.5rem;
-    }
-    footer {
-      padding: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.875rem;
-      color: var(--muted);
-      text-align: center;
-      background: rgba(61, 64, 91, 0.05);
-    }
     .container {
       margin: 0 auto;
       max-width: var(--max-width);
       width: 100%;
+      padding: 0 1.5rem;
     }
-    .eyebrow {
-      display: inline-flex;
+    a { color: #5a9178; }
+
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(244, 241, 222, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(224, 122, 95, 0.15);
-      color: var(--primary);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      padding: 1rem 0;
     }
-    h1 {
-      margin: 1.8rem 0 1.1rem;
-      font-size: clamp(2.6rem, 5.4vw, 4.3rem);
-      line-height: 1.1;
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
       letter-spacing: -0.02em;
     }
-    p.lead {
-      max-width: 44rem;
-      color: var(--muted);
-      font-size: 1.12rem;
-      margin-bottom: 2.4rem;
-    }
-    .cta-group {
+    .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      align-items: center;
+      gap: 2rem;
     }
-    .cta {
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 160ms ease;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      padding: 0.65rem 1.3rem;
+      border-radius: 0.75rem;
+      background: var(--primary);
+      color: #fff !important;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(224, 122, 95, 0.25);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(224, 122, 95, 0.35);
+    }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 0; }
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      padding: clamp(3.5rem, 8vw, 6rem) 0;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin: 0 0 1.4rem;
+    }
+    .hero .lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0 0 1.6rem;
+      max-width: 36rem;
+    }
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 0.95rem 1.9rem;
-      border-radius: 0.95rem;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 160ms ease, box-shadow 160ms ease;
-      box-shadow: 0 22px 44px rgba(224, 122, 95, 0.3);
-    }
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 24px 50px rgba(224, 122, 95, 0.4);
-    }
-    .cta.secondary {
-      background: transparent;
-      color: var(--fg);
-      border: 1px solid var(--border);
-      box-shadow: none;
-    }
-    section {
-      margin-top: clamp(3rem, 6vw, 5rem);
-    }
-    h2 {
-      font-size: 1.9rem;
-      margin-bottom: 1.2rem;
-    }
-    .card {
-      padding: clamp(1.7rem, 3vw, 2.4rem);
-      border-radius: 1.4rem;
-      background: var(--surface-strong);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 32px rgba(61, 64, 91, 0.08);
-    }
-    .card p {
-      margin: 0;
-    }
-    .pill-group {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      margin: 1.8rem 0 0;
-    }
-    .pill {
-      padding: 0.55rem 1.2rem;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(129, 178, 154, 0.1);
-      color: var(--fg);
-      font-size: 0.9rem;
+      background: rgba(129, 178, 154, 0.15);
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
-    .grid-two {
-      display: grid;
-      gap: 1.9rem;
-      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    .status-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
     }
-    .section-lead {
-      max-width: 46rem;
-      color: var(--muted);
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.9); }
     }
-    .split-card {
-      display: grid;
-      gap: 1.4rem;
-      grid-template-columns: 1fr;
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .note {
-      padding: 1rem 1.3rem;
-      border-radius: 0.9rem;
-      border: 1px dashed var(--border);
-      background: rgba(242, 204, 143, 0.15);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .github-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-      align-items: start;
-      margin-top: 2rem;
-    }
-    .github-heatmap img {
+    .hero-illustration {
       width: 100%;
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      background: var(--surface-strong);
+      max-width: 480px;
+      height: auto;
+      mix-blend-mode: multiply;
     }
-    .github-heatmap small {
-      display: block;
-      margin-top: 0.5rem;
-      color: var(--muted);
-      font-size: 0.76rem;
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-visual { order: -1; }
+      .hero-illustration {
+        max-width: 360px;
+      }
+      .hero .lead { max-width: none; }
     }
-    .projects-list {
+
+    /* Expertise */
+    .expertise {
+      padding: 4rem 0;
+    }
+    .expertise h2 {
+      text-align: center;
+      font-size: 1.75rem;
+      margin: 0 0 2.5rem;
+    }
+    .expertise-grid {
       display: grid;
-      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
-    .project-card {
-      padding: 1.2rem 1.35rem;
-      border-radius: 1.1rem;
-      border: 1px solid var(--border);
+    .expertise-card {
+      padding: 2rem;
+      border-radius: 1.25rem;
       background: var(--surface-strong);
-      transition: transform 160ms ease, border 160ms ease;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 200ms ease, box-shadow 200ms ease;
     }
-    .project-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(129, 178, 154, 0.6);
+    .expertise-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(61, 64, 91, 0.1);
     }
-    .project-card h3 {
-      margin: 0 0 0.4rem;
-      font-size: 1.1rem;
+    .expertise-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
     }
-    .project-card p {
-      margin: 0 0 0.75rem;
+    .expertise-icon.strategy { background: rgba(224, 122, 95, 0.15); }
+    .expertise-icon.ai { background: rgba(129, 178, 154, 0.15); }
+    .expertise-icon.automation { background: rgba(242, 204, 143, 0.3); }
+    .expertise-card h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.15rem;
+    }
+    .expertise-card p {
+      margin: 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
-    .project-meta {
+
+    /* Skills Pills */
+    .skills-row {
       display: flex;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: var(--muted);
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding: 2rem 0 4rem;
     }
-    .todo-list {
-      margin-top: 1.2rem;
-      padding-left: 1.2rem;
-      color: var(--muted);
+    .skill-pill {
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
-    .todo-list li {
-      margin-bottom: 0.4rem;
+    .skill-pill.coral {
+      background: rgba(224, 122, 95, 0.15);
+      color: var(--primary);
     }
-    a {
+    .skill-pill.indigo {
+      background: rgba(61, 64, 91, 0.1);
+      color: var(--fg);
+    }
+    .skill-pill.green {
+      background: rgba(129, 178, 154, 0.15);
       color: #5a9178;
     }
-    @media (max-width: 640px) {
-      .cta-group {
-        width: 100%;
-      }
-      .cta {
-        flex: 1;
-        justify-content: center;
-      }
-      .project-meta {
-        flex-direction: column;
-        gap: 0.4rem;
-      }
+
+    /* Work Section */
+    .work-section {
+      background: var(--surface);
+      padding: 4rem 0;
+    }
+    .work-section h2 {
+      font-size: 1.75rem;
+      margin: 0 0 2rem;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .card {
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border-radius: 1.25rem;
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+    }
+    .card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .github-heatmap img {
+      width: 100%;
+      border-radius: 0.75rem;
+    }
+    .github-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.25rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .book-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .book-card img {
+      width: 56px;
+      height: auto;
+      border-radius: 0.35rem;
+      box-shadow: 0 4px 12px rgba(61, 64, 91, 0.15);
+    }
+    .book-info { flex: 1; min-width: 0; }
+    .book-info small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .book-info .book-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      margin: 0;
+    }
+    .book-info .book-author {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0.2rem 0 0;
+    }
+    @media (max-width: 768px) {
+      .work-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .footer-social a {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--muted);
+      transition: all 180ms ease;
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <span class="eyebrow">AI-native product leader</span>
-      <h1>Using composite AI, APIs, and automation to dissolve technology constraints.</h1>
-      <p class="lead">I’m Austin Johnson—AI-native PM and founder of 28eme studio. I help collaborators ship automation-first products and creative side projects that stay nimble, personal, and future-ready.</p>
-      <div class="cta-group">
-        <a class="cta" href="https://28eme.ca" target="_blank" rel="noopener">Visit 28eme Studio</a>
-        <a class="cta secondary" href="https://github.com/austinbjohnson" target="_blank" rel="noopener">Explore GitHub</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">AJ</a>
+      <div class="nav-links">
+        <a href="#expertise">About</a>
+        <a href="https://28eme.ca" target="_blank" rel="noopener">Studio</a>
+        <a href="mailto:hello@28eme.com?subject=Let's%20Connect" class="nav-cta">Let's Connect</a>
       </div>
     </div>
-  </header>
+  </nav>
 
   <main>
     <div class="container">
-      <section>
-        <h2>About Austin</h2>
-        <div class="card">
-          <p>Austin Johnson is an AI-native product manager and founder of <strong>28eme</strong>, a personal studio for automation-first and creative side projects. He’s obsessed with bending APIs, event streams, and composite AI to remove constraints—whether the challenge is giving a small team superpowers or instrumenting a personal passion project. Austin brings a problem-first mindset: map the job-to-be-done, compose the AI agents and automations around it, and ship iteratively with clear documentation. The details of his work at Zapier stay private, but the craft informs every engagement. In his own studio, he publishes prototypes, maintains open repos, and crafts tooling for cyclists, readers, leatherworkers, runners, and fellow builders. The through-line is constant: less friction, more flow, and technology that adapts to people—not the other way around.</p>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Using AI and automation to dissolve technology constraints</h1>
+          <p class="lead">I'm Austin Johnson—AI-native PM and founder of 28eme studio. I help collaborators ship automation-first products and creative side projects that stay nimble, personal, and future-ready.</p>
+          <span class="status-pill">Available for new projects</span>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/hero-illustration.jpg" alt="Illustration of interests: bicycle, books, laptop, running shoes, and leatherworking tools" class="hero-illustration">
         </div>
       </section>
 
-      <section>
-        <h2>How 28eme engages</h2>
-        <p class="section-lead">I partner with founders, operators, and creative collaborators who want to move fast without feeling boxed in by tooling.</p>
-        <div class="grid-two">
-          <div class="card">
-            <h3 style="margin-top:0;">What guides my work</h3>
-            <div class="pill-group">
-              <span class="pill">AI native from day one</span>
-              <span class="pill">APIs as building blocks</span>
-              <span class="pill">Problem-first, tooling-second</span>
-              <span class="pill">Bias to shipping in public</span>
-            </div>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0;">How it feels to collaborate</h3>
-            <p>Expect short feedback loops, steady documentation, and prototypes that make automated systems understandable to non-engineers. Every engagement aims to leave you with reusable building blocks—not dependency on me.</p>
-          </div>
+      <section class="expertise" id="expertise">
+        <h2>Expertise & Focus</h2>
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <div class="expertise-icon strategy">&#x1F4CA;</div>
+            <h3>Product Strategy</h3>
+            <p>Problem-first discovery and roadmap development for AI-native products.</p>
+          </article>
+          <article class="expertise-card">
+            <div class="expertise-icon ai">&#x1F916;</div>
+            <h3>AI Integration</h3>
+            <p>Composite AI systems that augment human workflows without replacing judgment.</p>
+          </article>
+          <article class="expertise-card">
+            <div class="expertise-icon automation">&#x26A1;</div>
+            <h3>Process Automation</h3>
+            <p>Event-driven pipelines and no-code orchestration that scale with your team.</p>
+          </article>
         </div>
       </section>
 
-      <section>
-        <h2>Building in public</h2>
-        <p class="section-lead">28eme doubles as my sandbox for automation and hobby projects—biking, reading, leatherworking, and running experiments live alongside automation notes.</p>
-        <div class="github-grid">
-          <div class="github-heatmap">
-            <img src="https://ghchart.rshah.org/austinbjohnson" alt="GitHub contribution heatmap for Austin Johnson" loading="lazy">
-            <small>Contribution graph courtesy of <a href="https://ghchart.rshah.org/" target="_blank" rel="noopener">ghchart</a>.</small>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0;">Recent experiments</h3>
-            <div id="projects" class="projects-list">
-              <p style="color:var(--muted);">Loading projects…</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Ready to collaborate</h2>
-        <div class="card">
-          <p>Have an AI-native automation idea, a workflow that needs love, or a creative side project you want to amplify? Browse services at <a href="https://28eme.ca" target="_blank" rel="noopener">28eme.ca</a> or reach out directly.</p>
-          <div class="cta-group" style="margin-top:1.8rem;">
-            <a class="cta" href="mailto:hello@28eme.com?subject=Collaboration%20with%2028eme">Start a conversation</a>
-            <a class="cta secondary" href="https://github.com/austinbjohnson" target="_blank" rel="noopener">Latest code & notes</a>
-          </div>
-        </div>
-      </section>
+      <div class="skills-row">
+        <span class="skill-pill coral">Product Management</span>
+        <span class="skill-pill indigo">AI/ML</span>
+        <span class="skill-pill green">No-Code</span>
+        <span class="skill-pill coral">Consulting</span>
+        <span class="skill-pill green">Workflow Design</span>
+      </div>
     </div>
+
+    <section class="work-section" id="work">
+      <div class="container">
+        <h2>Recent Work & Contributions</h2>
+        <div class="work-grid">
+          <div class="card">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Open Source Activity
+            </h3>
+            <div class="github-heatmap">
+              <img src="https://ghchart.rshah.org/austinbjohnson" alt="GitHub contribution heatmap for Austin Johnson" loading="lazy">
+            </div>
+            <div class="github-stats" id="github-stats">
+              <div class="stat-item">
+                <div class="stat-value">—</div>
+                <div class="stat-label">Repos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">—</div>
+                <div class="stat-label">Followers</div>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="currently-reading">
+            <h3>Currently Reading</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container">&copy; <span id="year"></span> Austin Johnson · <a href="https://28eme.ca" target="_blank" rel="noopener">28eme Studio</a></div>
+    <nav class="footer-social">
+      <a href="https://www.linkedin.com/in/austinbjohnson/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://www.goodreads.com/abj0028" target="_blank" rel="noopener" aria-label="Goodreads">
+        <svg viewBox="0 0 24 24"><path d="M11.43 23.995c-3.608-.208-6.274-2.077-6.448-5.078.695.007 1.375-.013 2.07-.006.224 1.342 1.065 2.43 2.683 3.026 1.583.496 3.737.46 5.082-.174 1.351-.636 2.145-1.822 2.503-3.577.212-1.042.236-1.734.231-2.92l-.005-.064c-.415.71-1.143 1.318-2.184 1.826-1.672.818-4.266.908-6.267.127-2.342-.912-4.105-2.96-4.476-5.683-.357-2.628.074-5.117 1.51-6.817 1.075-1.273 2.618-2.066 4.43-2.378 1.684-.29 3.65-.077 5.26.72 1.196.591 2.13 1.537 2.781 2.789v-3.31h2.06v15.283c.017 2.195-.565 4.047-1.933 5.274-1.373 1.233-3.453 1.847-6.297 1.961zm-1.85-8.864c1.395.55 3.312.456 4.783-.263 1.2-.586 2.02-1.479 2.46-2.679.494-1.404.567-3.268.24-4.921-.34-1.717-1.252-3.095-2.714-3.793-1.322-.632-3.03-.734-4.594-.36-1.46.349-2.648 1.187-3.288 2.461-.685 1.365-.76 3.319-.527 5.045.294 2.175 1.591 3.905 3.64 4.51z"/></svg>
+      </a>
+      <a href="https://www.strava.com/athletes/19650448" target="_blank" rel="noopener" aria-label="Strava">
+        <svg viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
+      </a>
+      <a href="https://github.com/austinbjohnson" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+    </nav>
+    <p>&copy; <span id="year"></span> Austin Johnson</p>
   </footer>
 
   <script>
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    async function loadProjects() {
-      const container = document.getElementById("projects");
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const navHeight = document.querySelector('.nav').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Load GitHub stats
+    async function loadGitHubStats() {
+      const container = document.getElementById("github-stats");
+      if (!container) return;
+      try {
+        const response = await fetch("https://api.github.com/users/austinbjohnson");
+        if (!response.ok) throw new Error("GitHub API request failed");
+        const user = await response.json();
+        container.innerHTML = `
+          <div class="stat-item">
+            <div class="stat-value">${user.public_repos}</div>
+            <div class="stat-label">Repos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${user.followers}</div>
+            <div class="stat-label">Followers</div>
+          </div>
+        `;
+      } catch (e) {
+        // Keep placeholder values on error
+      }
+    }
+    loadGitHubStats();
+
+    // Load currently reading from Goodreads
+    async function loadCurrentlyReading() {
+      const container = document.getElementById("currently-reading");
       if (!container) return;
 
-      try {
-        const response = await fetch("https://api.github.com/users/austinbjohnson/repos?sort=updated&per_page=8");
-        if (!response.ok) throw new Error("GitHub API request failed");
-        const repos = await response.json();
-        const featured = repos
-          .filter(repo => !repo.fork && !repo.private && !repo.archived)
-          .slice(0, 4);
+      const GOODREADS_USER_ID = "52814709";
+      const RSS_URL = `https://www.goodreads.com/review/list_rss/${GOODREADS_USER_ID}?shelf=currently-reading`;
+      const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(RSS_URL)}`;
 
-        if (!featured.length) {
-          container.innerHTML = "<p style=\"color:var(--muted);\">No public projects to show just yet.</p>";
+      try {
+        const response = await fetch(PROXY_URL);
+        if (!response.ok) throw new Error("Failed to fetch Goodreads RSS");
+
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(xmlText, "application/xml");
+        const items = xml.querySelectorAll("item");
+
+        if (!items.length) {
+          container.innerHTML = `
+            <h3>Currently Reading</h3>
+            <p style="color:var(--muted);font-size:0.9rem;">Nothing on the nightstand right now.</p>
+          `;
           return;
         }
 
-        container.innerHTML = featured.map(repo => {
-          const topics = Array.isArray(repo.topics)
-            ? repo.topics.slice(0, 3).map(topic => `<span class=\"pill\">${topic}</span>`).join(" ")
-            : "";
-          return `
-            <article class="project-card">
-              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a></h3>
-              <p>${repo.description ? repo.description : "Exploring automation-first, AI-native workflows."}</p>
-              <div class="project-meta">
-                <span>Updated ${new Date(repo.pushed_at).toLocaleDateString()}</span>
-                <span>★ ${repo.stargazers_count}</span>
-              </div>
-              ${topics ? `<div class="pill-group" style="margin-top:0.75rem;">${topics}</div>` : ""}
-            </article>
-          `;
-        }).join("");
+        const item = items[0];
+        const title = item.querySelector("title")?.textContent || "Unknown title";
+        const author = item.querySelector("author_name")?.textContent || "Unknown author";
+        const imageUrl = item.querySelector("book_medium_image_url")?.textContent
+          || item.querySelector("book_image_url")?.textContent
+          || "";
+        const bookLink = item.querySelector("link")?.textContent || "https://www.goodreads.com";
+
+        container.innerHTML = `
+          <h3>Currently Reading</h3>
+          <a href="${bookLink}" target="_blank" rel="noopener" class="book-card" style="text-decoration:none;color:inherit;">
+            ${imageUrl ? `<img src="${imageUrl}" alt="${title} cover">` : ""}
+            <div class="book-info">
+              <small>On the nightstand</small>
+              <p class="book-title">${title}</p>
+              <p class="book-author">by ${author}</p>
+            </div>
+          </a>
+        `;
       } catch (error) {
-        container.innerHTML = `<p style="color:var(--muted);">Unable to load projects right now. View everything on <a href="https://github.com/austinbjohnson" target="_blank" rel="noopener">GitHub</a>.</p>`;
+        container.innerHTML = `
+          <h3>Currently Reading</h3>
+          <p style="color:var(--muted);font-size:0.9rem;">Unable to load book data.</p>
+        `;
       }
     }
-
-    loadProjects();
+    loadCurrentlyReading();
   </script>
 </body>
 </html>
